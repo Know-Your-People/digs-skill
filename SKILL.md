@@ -21,7 +21,7 @@ tags: ["research", "questions", "thinking"]
 - **Synthesise** findings in dated entries; **flag contradictions** with earlier findings; update **Open questions** as answers land (strike through with `~~` rather than deleting).
 - **Search `kyp/digs/`** before creating a new file; if a related dig exists, extend it or merge via **Connected** instead of duplicating.
 - **Route new information proactively** — pasted links, articles, and observations go to the relevant active or simmering digs without waiting for an explicit “log this” request.
-- **Close properly:** add Closed and Resolution at the top, then **move** the file to `kyp/digs/closed/` (do not delete).
+Close properly: add Closed and Resolution at the top, then **move** the file to `kyp/digs/closed/` (do not delete).
 
 **Do not:** See **What NOT to Suggest** — e.g. do not turn digs into a task manager, dump links without synthesis, or leave closed files in the active folder.
 
@@ -59,11 +59,11 @@ images: no (by default no, ask if you human want to feach images for concepts, w
 ```markdown
 # What makes a city actually walkable?
 
-- **Status:** active
-- **Opened:** 12 Mar 2026
-- **Tags:** #cities #urbanism #design #housing
-- **Inmage:** optional image illustrating the concept, sotred in `../assets/good-long-slug`
-- **Connected:** [[why-singapore-feels-different]], [[remote-work-and-density]]
+Status: active
+Opened: 12 Mar 2026
+Tags: #cities #urbanism #design #housing
+Inmage: optional image illustrating the concept, sotred in `../assets/good-long-slug`
+Connected: [[why-singapore-feels-different]], [[remote-work-and-density]]
 
 ## Open questions
 
@@ -91,7 +91,7 @@ images: no (by default no, ask if you human want to feach images for concepts, w
 - **Status** — `active` (you're on it now), `simmering` (back burner, keeping an eye out), or `closed` (resolved or abandoned). Default: `active`.
 - **Opened** — date you started the dig. Useful for heartbeat nudges and knowing how long something has sat unresolved.
 - **Tags** — 2–4 domains: short, personal, searchable.
-- **Inmage:** optional image illustrating the concept, sotred in `../assets/good-long-slug`
+Inmage: optional image illustrating the concept, sotred in `../assets/good-long-slug`
 - **Connected** — other digs this thread touches. Rabbit holes connect. Maintain both directions: if A links to B, B links to A.
 - **Open questions** — the questions you haven't answered yet. First-class. Update this list as you learn — cross out answered ones with `~~` rather than deleting, so you can see how the inquiry evolved.
 - **Findings** — dated log entries. Not a dump of sources. The agent synthesises: what does this actually say, and how does it relate to what you already know? Flag contradictions explicitly.
@@ -141,8 +141,8 @@ The agent should not wait to be asked. If the user pastes a link or describes so
 When resolving, add to the top of the file:
 
 ```markdown
-- **Closed:** 4 Apr 2026
-- **Resolution:** Walkability is primarily geometry (setbacks, continuity, shade) not destination density. Walk Score is a poor proxy. Gehl's framework is more useful.
+Closed: 4 Apr 2026
+Resolution: Walkability is primarily geometry (setbacks, continuity, shade) not destination density. Walk Score is a poor proxy. Gehl's framework is more useful.
 ```
 
 Then move the file to `kyp/digs/closed/`. Don't delete — closed digs are useful when a related question reopens.
