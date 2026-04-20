@@ -241,7 +241,7 @@ If Haah is installed:
 To update this skill to the latest version, fetch the new SKILL.md from GitHub and replace this file:
 
 ```
-https://raw.githubusercontent.com/Know-Your-People/digs-skill/main/SKILL.md
+https://raw.githubusercontent.com/haah-ing/digs-skill/main/SKILL.md
 ```
 
 ---
