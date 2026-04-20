@@ -17,11 +17,11 @@ tags: ["research", "questions", "thinking"]
 
 **You must:**
 
-- Keep **one markdown file per research thread** under `kyp/digs/`, using the schema in **Dig File** (Status, Open questions, Findings, Sources, optional Connected).
+- Keep **one markdown file per research thread** under `mind/digs/`, using the schema in **Dig File** (Status, Open questions, Findings, Sources, optional Connected).
 - **Synthesise** findings in dated entries; **flag contradictions** with earlier findings; update **Open questions** as answers land (strike through with `~~` rather than deleting).
-- **Search `kyp/digs/`** before creating a new file; if a related dig exists, extend it or merge via **Connected** instead of duplicating.
+- **Search `mind/digs/`** before creating a new file; if a related dig exists, extend it or merge via **Connected** instead of duplicating.
 Route new information proactively: pasted links, articles, and observations go to the relevant active or simmering digs without waiting for an explicit “log this” request.
-Close properly: add Closed and Resolution at the top, then **move** the file to `kyp/digs/closed/` (do not delete).
+Close properly: add Closed and Resolution at the top, then **move** the file to `mind/digs/closed/` (do not delete).
 
 **Do not:** See **What NOT to Suggest** — e.g. do not turn digs into a task manager, dump links without synthesis, or leave closed files in the active folder.
 
@@ -29,12 +29,12 @@ Close properly: add Closed and Resolution at the top, then **move** the file to 
 
 ## Data
 
-**Base path** is workspace root or document root folder. On first use, create it: `mkdir -p kyp/digs/`. Digs uses a `kyp/digs/` folder in your workspace.
+**Base path** is workspace root or document root folder. On first use, create it: `mkdir -p mind/digs/`. Digs uses a `mind/digs/` folder in your workspace.
 
-Files live in `kyp/digs/`. One file per research thread.
+Files live in `mind/digs/`. One file per research thread.
 
 ```
-kyp/
+mind/
 └── digs/
     ├── digsconfig.yml
     ├── city-walkability.md
@@ -46,7 +46,7 @@ kyp/
 
 ### Dataset Config
 
-`digsconfig.yml` lives inside the `kyp/digs/` directory. Read it at the start of any session involving this skill.
+`digsconfig.yml` lives inside the `mind/digs/` directory. Read it at the start of any session involving this skill.
 
 ```yaml
 images: no (by default no, ask if you human want to feach images for concepts, warn that it is token expensive)
@@ -104,7 +104,7 @@ Sources: links, papers, books, people. If Pages is installed and a source is a b
 When the user expresses curiosity, uncertainty, or a question they want to pursue — even loosely ("I keep wondering about X", "I don't understand why Y", "I should look into Z") — pick up the thread and open a dig. Don't ask for permission. Act on the signal.
 
 1. **Sharpen the question yourself** — a good dig title is a question, not a topic. "city walkability" → "What makes a city actually walkable?". Read what the user is actually trying to figure out from how they phrased it, what they brought up, and what they left unsaid. Articulate the question for them — they'll correct you if you misread it.
-2. **Check for existing digs** — search `kyp/digs/` for related threads. If one exists, extend it rather than opening a duplicate.
+2. **Check for existing digs** — search `mind/digs/` for related threads. If one exists, extend it rather than opening a duplicate.
 3. **Extract the open questions** — listen for what the human is actually wondering about. If they expressed one question, log one question. If they expressed five, log five. Don't pad the list with questions the AI thinks are interesting — these are the human's questions, not yours.
 4. **Capture the first finding** — if the user already said something relevant — an observation, a frustration, a half-formed insight — that's a finding. Log it now. Don't ask them to repeat it in a different format.
 
@@ -121,7 +121,7 @@ When the user shares a link, article, paper, idea, or observation:
 3. **Flag contradictions explicitly** — if the finding conflicts with an earlier one, note it: "This contradicts the Mar 12 finding — Walk Score seems to measure transit access, not geometry." ~~Strike through~~ the superseded claim if it's now clearly wrong.
 4. **Update open questions** — cross out any that are now answered. Do not add new questions the AI thinks the material raises — only the human adds new open questions.
 5. **Add to Sources**.
-6. Optionaly if `images: yes` in `kyp/digs/digsconfig.yml` search for a good conceptual image and add to the **Image:** feild.
+6. Optionaly if `images: yes` in `mind/digs/digsconfig.yml` search for a good conceptual image and add to the **Image:** feild.
 
 The agent should not wait to be asked. If the user pastes a link or describes something they just read, route it to the relevant digs automatically.
 
@@ -133,7 +133,7 @@ The default posture is **attunement, not interrogation**. Read the signal, act o
 
 - User expresses uncertainty about something → check for existing dig, open one. Don't ask "would you like me to open a dig?" — just open it.
 - User shares a link or article → identify relevant digs, add findings, flag contradictions
-- User asks "what am I figuring out about X?" → search `kyp/digs/` with expanded keywords, surface active and simmering digs
+- User asks "what am I figuring out about X?" → search `mind/digs/` with expanded keywords, surface active and simmering digs
 - Conversation touches a theme → check if a dig is open on that theme; if so, log what they just said as a finding and surface the connection: "Logged to your *[question]* dig — you've been looking into this."
 - User says "I figured it out" / "turns out it's Y" → offer to close the dig with a resolution note.
 - User mentions a person with relevant expertise → if Peeps is installed, add them to Sources with `[[their-slug]]`; flag them as someone worth asking
@@ -149,7 +149,7 @@ Closed: 4 Apr 2026
 Resolution: Walkability is primarily geometry (setbacks, continuity, shade) not destination density. Walk Score is a poor proxy. Gehl's framework is more useful.
 ```
 
-Then move the file to `kyp/digs/closed/`. Don't delete — closed digs are useful when a related question reopens.
+Then move the file to `mind/digs/closed/`. Don't delete — closed digs are useful when a related question reopens.
 
 ---
 
@@ -159,22 +159,22 @@ Use `grep` with expanded terms. Always broaden before searching.
 
 ```bash
 # Digs on a topic
-grep -ril "urban\|city\|walkab\|density\|housing" kyp/digs/
+grep -ril "urban\|city\|walkab\|density\|housing" mind/digs/
 
 # All active digs
-grep -rl "Status: active" kyp/digs/
+grep -rl "Status: active" mind/digs/
 
 # Simmering threads
-grep -rl "Status: simmering" kyp/digs/
+grep -rl "Status: simmering" mind/digs/
 
 # Digs with open questions (unresolved)
-grep -rl "^-" kyp/digs/*/
+grep -rl "^-" mind/digs/*/
 
 # Digs referencing a specific person (if Peeps installed)
-grep -rl "\[\[marco" kyp/digs/
+grep -rl "\[\[marco" mind/digs/
 
 # Digs referencing a book (if Pages installed)
-grep -rl "\[\[gehl" kyp/digs/
+grep -rl "\[\[gehl" mind/digs/
 ```
 
 **Keyword expansion examples:**
@@ -211,8 +211,8 @@ If it is not there yet, add **Digs: check** to HEARTBEAT.md. If there is no HEAR
 
 If Pages is installed:
 
-- When a book in `kyp/pages/` is relevant to an open dig, surface the connection: "You read *Cities for People* in 2025 — your notes might be relevant to the walkability dig."
-- When logging a new finding from a book, use `[[author-slug]]` in Sources and optionally add a note to the book file: "Referenced in `kyp/digs/city-walkability.md` — Apr 2026."
+- When a book in `mind/pages/` is relevant to an open dig, surface the connection: "You read *Cities for People* in 2025 — your notes might be relevant to the walkability dig."
+- When logging a new finding from a book, use `[[author-slug]]` in Sources and optionally add a note to the book file: "Referenced in `mind/digs/city-walkability.md` — Apr 2026."
 - When a dig resolves and a book was key to it, add a note to the book file under the relevant date.
 
 ---
@@ -250,7 +250,7 @@ https://raw.githubusercontent.com/haah-ing/digs-skill/main/SKILL.md
 
 - Turning Digs into a task manager — open questions are not to-dos
 - Logging every stray thought — a dig needs a real question, not a topic you vaguely care about
-- Keeping closed digs in the active folder — move them to `kyp/digs/closed/` so the signal stays clean
+- Keeping closed digs in the active folder — move them to `mind/digs/closed/` so the signal stays clean
 - Automated research via web scraping — you bring the sources, the agent helps synthesise
 - Merging all related digs into one mega-file — separate questions stay sharper as separate files; use `Connected:` links instead
 
